@@ -1,5 +1,7 @@
 <?php
-
+	// This can be set here or in the parent folder's index.php file
+	// $root = "dev-home";
+	
 	$vhosts_file = "$root/vhosts.php";
 	
 	$apache = preg_replace("/\//", " ", preg_split("/ /", $_SERVER['SERVER_SOFTWARE']));
