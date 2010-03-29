@@ -1,0 +1,148 @@
+/* @override http://localhost/styles.css */
+
+/* @group Resets */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}caption,th {text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym {border:0;}
+
+/* @end */
+
+/* @group 1Kb Grid */
+
+/* ================ */
+/* = The 1Kb Grid = */     /* 9 columns, 60 pixels each, with 20 pixel gutter */
+/* ================ */
+
+.grid_1 { width:60px; }
+.grid_2 { width:140px; }
+.grid_3 { width:220px; }
+.grid_4 { width:300px; }
+.grid_5 { width:380px; }
+.grid_6 { width:460px; }
+.grid_7 { width:540px; }
+.grid_8 { width:620px; }
+.grid_9 { width:700px; }
+
+.column {
+	margin: 0 10px;
+	overflow: hidden;
+	float: left;
+	display: inline;
+}
+.row {
+	width: 720px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.row .row {
+	margin: 0 -10px;
+	width: auto;
+	display: inline-block;
+}
+
+/* @end */
+
+/* @group Globals */
+
+body {
+	font: normal 90%/1.4em "Myriad Pro", "Century Gothic", Verdana, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
+	color: #676768;
+	background-color: #babbbe;
+}
+
+h1 {
+	font-size: 2em;
+	line-height: 1.4em;
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.4em;
+	font-weight: bold;
+	line-height: 1.4em;
+	color: #ee322d;
+	padding-top: .3em;
+}
+
+h3 {
+	font-size: 1.2em;
+	line-height: 1.4em;
+	font-weight: bold;
+	padding: 1em 0 .3em;
+}
+
+p {
+	padding-bottom: .4em;
+}
+
+li {
+	line-height: 1.4em;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: #2c89c9;
+}
+
+a:hover {
+	color: #ee322d;
+}
+
+/* @end */
+
+#wrapper {
+	width: 740px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+	border: thick solid #2c89c9;
+	border-top: none;
+	margin-bottom: 30px;
+}
+
+#header {
+	margin-bottom: 10px;
+	padding: 15px 10px;
+	border-bottom: 3px solid #676768;
+}
+
+#content {
+	text-align: left;
+}
+
+#content h3 {
+	clear: both;
+}
+
+.server li {
+	display: block;
+	float: left;
+	padding: 0 10px 10px 0;
+	text-align: center;
+	font-weight: bold;
+}
+
+.server img {
+	padding-bottom: 10px;
+}
+
+.projects li {
+	background: url(images/folder.png) no-repeat;
+	padding-left: 25px;
+}
+
+.extensions li {
+	font-size: .8em;
+	display: block;
+	float: left;
+	padding: 0 1em 0 18px;
+	background: url(images/plugin.png) no-repeat 0 0;
+}
+
+.tools li {
+	padding-left: 20px;
+	background: url(images/tool.png) no-repeat 0 0;
+}
+
+#footer {
+	padding: 10px 0;
+}
