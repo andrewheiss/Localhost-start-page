@@ -1,0 +1,36 @@
+# Moving a local Drupal site to a live server:
+
+1. Use the following directory structure on the dev machine:
+	--sites
+	----all
+	------modules (put all contrib modules here or any modules that you created to use with more than one site)
+	------themes (put all contrib themes here)
+	----site1
+	------modules (put any modules specific for this site only)
+	------themes (put the custom theme for this site)
+	----site 2
+	------modules (put any modules specific for this site only)
+	------themes (put the custom theme for this site)
+
+2. Dump site1's database from dev machine and import into production server. Erase/truncate the `cache_menus` table.
+3. Copy `site1/` folder to `sites/site1/` on production server
+4. Symlink (`ln -s`) `site1/` to `www.site1.com/
+5. Verify that DB settings are correct in `site1/settings.php`
+6. Uncomment `$base_url` and set to `http://www.site1.com`
+7. Comment out section dealing with rewriting in `/drupal/.htaccess`
+8. Add the following to `/.htaccess`:
+	Options -Indexes
+	RewriteEngine on
+	# For security reasons, Option followsymlinks cannot be overridden.
+	#Options +FollowSymLinks
+	Options +SymLinksIfOwnerMatch
+	RewriteCond %{HTTP_HOST} !^www\.site1\.com$ [NC]
+	RewriteRule .* http://www.site1.com/	[L,R=301]
+	RewriteRule ^$ drupal/index.php	[L]
+	RewriteCond %{DOCUMENT_ROOT}/drupal%{REQUEST_URI} -f
+	RewriteRule .* drupal/$0 [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule .* drupal/index.php?q=$0 [QSA]
+
+9. Done!
